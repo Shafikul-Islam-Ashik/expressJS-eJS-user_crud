@@ -1,0 +1,203 @@
+<div class="container my-5">
+  <div class="row justify-content-center my-5">
+    <div class="col-md-5">
+      <a class="btn btn-sm btn-primary mb-3" href="/">Back</a>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Create Product</h2>
+        </div>
+        <div class="card-body">
+          <!--  -->
+          <form
+            action="/update/<%= singleUser.id %>"
+            enctype="multipart/form-data"
+            method="POST"
+            id="userUpdateForm"
+          >
+            <div class="py-2 d-flex justify-content-between">
+              <div style="width: 48%">
+                <label for="">First name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="f_name"
+                  value="<%= singleUser.f_name %>"
+                />
+              </div>
+              <div style="width: 48%">
+                <label for="">Last name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="l_name"
+                  value="<%= singleUser.l_name %>"
+                />
+              </div>
+            </div>
+
+            <div class="py-2 d-flex justify-content-between">
+              <div style="width: 48%">
+                <label for="">Age</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="age"
+                  value="<%= singleUser.age %>"
+                />
+              </div>
+              <div style="width: 48%">
+                <label for="">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="address"
+                  value="<%= singleUser.address %><%  %>"
+                />
+              </div>
+              <!-- <div style="width: 48%">
+                <label for="">Location</label>
+                <select
+                  name="location"
+                  id=""
+                  class="form-select"
+                  value="<%= singleUser.address %>"
+                >
+                  <option value="select">-select-</option>
+                  <option value="dhaka">Dhaka</option>
+                  <option value="sylhet">Sylhet</option>
+                  <option value="rajshahi">Rajshahi</option>
+                  <option value="barisal">Barisal</option>
+                  <option value="khulna">Khulna</option>
+                  <option value="comilla">Comilla</option>
+                  <option value="mymensingh">Mymensingh</option>
+                  <option value="chittagong">Chittagong</option>
+                </select>
+              </div> -->
+            </div>
+
+            <div class="py-2 d-flex justify-content-between">
+              <div style="width: 48%">
+                <label for="">Phone</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="phone"
+                  value="<%= singleUser.phone %>"
+                />
+              </div>
+
+              <div style="width: 48%">
+                <label for="">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  value="<%= singleUser.email %>"
+                />
+              </div>
+            </div>
+
+            <!-- <div class="py-2">
+              <label for="" class="pb-2">Gender</label>
+              <br />
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  value="male"
+                />
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value="female"
+                />
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gender"
+                  id="others"
+                  value="others"
+                />
+                <label class="form-check-label" for="others">Others</label>
+              </div>
+            </div> -->
+
+            <div class="my-3">
+              <label for="">Photo</label>
+              <input
+                type="file"
+                class="form-control"
+                name="userPhoto"
+                id="photo-input"
+              />
+            </div>
+
+            <div
+              class="my-3"
+              style="
+                border: 3px solid #ddd;
+                height: 150px;
+                width: 150px;
+                margin: auto;
+                overflow: hidden;
+                border-radius: 5px;
+              "
+            >
+              <img
+                class="w-100"
+                height="150px"
+                src="/users/<%= singleUser.photo %>"
+                alt=""
+                id="photo-preview"
+              />
+            </div>
+
+            <div class="py-3">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
+            </div>
+          </form>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // for image preview
+
+  const photoInput = document.getElementById("photo-input");
+  const photoPreview = document.getElementById("photo-preview");
+
+  photoInput.onchange = function () {
+    const imgSrc = URL.createObjectURL(this.files[0]);
+
+    photoPreview.src = imgSrc;
+  };
+
+  // const userUpdateForm = document.getElementById("userUpdateForm");
+
+  // for location
+  // userUpdateForm.querySelector("select[name='location']").value = "dhaka";
+
+  // for gender
+  // const genderInput = userUpdateForm.querySelectorAll("input[name='gender']");
+
+  // genderInput.forEach((item) => {
+  //   if (item.value === "male") {
+  //     item.checked = true;
+  //   }
+  // });
+</script>

@@ -1,0 +1,65 @@
+<div class="container my-5">
+  <div class="row justify-content-center my-5">
+    <div class="col-md-11">
+      <a class="btn btn-sm btn-primary mb-3" href="/create">Add new user</a>
+
+      <div class="card">
+        <div class="card-body">
+          <table
+            id="myTable"
+            class="table table-striped align-middle"
+            style="width: 100%"
+          >
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% users.forEach((item, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td>
+                  <img
+                    style="
+                      height: 40px;
+                      width: 40px;
+                      object-fit: cover;
+                      border-radius: 50%;
+                    "
+                    src="/users/<%= item.photo %>"
+                    alt=""
+                  />
+                </td>
+                <td><%= item.f_name +" "+ item.l_name %></td>
+                <td><%= item.age %></td>
+                <td><%= item.address %></td>
+                <td><%= item.phone %></td>
+                <td><%= item.email %></td>
+                <td>
+                  <a class="btn btn-sm btn-info" href="/single/<%= item.slug %>"
+                    ><i class="fa fa-eye"></i
+                  ></a>
+                  <a class="btn btn-sm btn-warning" href="/edit/<%= item.id %>"
+                    ><i class="fa fa-edit"></i
+                  ></a>
+                  <a class="btn btn-sm btn-danger" href="/delete/<%= item.id %>"
+                    ><i class="fa fa-trash"></i
+                  ></a>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
